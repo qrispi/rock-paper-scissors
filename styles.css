@@ -1,0 +1,18 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    text-align: center;
+}
+
+main {
+    flex-basis: 60%;
+    font-size: 5vmin;
+    background-color: aqua;
+}
+
+section {
+    flex-basis: 20%;
+    font-size: 4vmin;
+    background-color: aquamarine;
+}
