@@ -3,15 +3,15 @@ class Player {
         this.name = playerObject.name
         this.token = playerObject.token
         this.wins = playerObject.wins
-        // this.classicPieces = ['rock', 'paper', 'scissors']
-        // this.expandedPieces = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+        // this.possiblePieces = ['rock', 'paper', 'scissors', 'lizard', 'spock']
     }
 
     takeTurn(num) {
         if (num) {
             return Math.floor(Math.random() * num)
         } else {
-            return 'index number of icon that player clicked'
+            // 'index number of icon that player clicked'
+            return 0
         }
     }
 
@@ -35,3 +35,6 @@ class Player {
 // A way to check the Game’s board data for win conditions
 // A way to detect when a game is a draw (no one has won)
 // A way to reset the Game’s board to begin a new game
+
+{name: human, wins: 0,}
+{name: computer, wins: 0,}
