@@ -13,4 +13,8 @@ class Player {
             return num || 0
         }
     }
+
+    addWin() {
+        this.wins++
+    }
 }
