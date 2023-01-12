@@ -2,75 +2,57 @@ class Game {
     constructor(humanPlayer, computerPlayer) {
         this.human = new Player(humanPlayer)
         this.computer = new Player(computerPlayer)
-        this.gamePieces = 3
-        // How do I pass the new players the appropriate parameters? Should I set the player class up to use an object as a parameter?
-        // Not sure if I need this:
-        // this.classicGame = true
-        // this.expandedGame = false
-
-        // this.classicPieces = ['rock', 'paper', 'scissors']
-        // this.expandedPieces = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+        this.pieceQuantity = 3
+        // Probably won't need this array once DOM is setup
+        this.gamePieces = ['rock', 'paper', 'scissors', 'spock', 'lizard']
     }
 
-    // Not sure if I will need this either:
-    // switchGames() {
-    //     this.classicGame = !this.classicGame
-    //     this.expandedGame = !this.expandedGame
-    // }
+    // Once connected to DOM, will just take in a parameter of whats clicked and assign pieceQuantity accordingly
     switchGames() {
-        if (this.gamePieces === 3) {
-            this.gamePieces = 5
+        if (this.pieceQuantity === 3) {
+            this.pieceQuantity = 5
         } else {
-            this.gamePieces = 3
+            this.pieceQuantity = 3
         }
     }
 
-    // I don't think I even need to keep track of what game is being played in the class, my method doesn't give a shit what the numbers are
-    // I guess I might need it to tell the DOM which icons to display
     playGame() {
-        // function fight(num) {
+        // unnecessary console logs and vars for clarity        
         var playerChoice = this.human.takeTurn()
-        var computerChoice = this.computer.takeTurn(this.gamePieces)
+        console.log('human :', this.gamePieces[playerChoice])
+        var computerChoice = this.computer.takeTurn(this.pieceQuantity)
+        console.log('computer :', this.gamePieces[computerChoice])
         var sum = (playerChoice - computerChoice)
+
+        // Should be triggered by player clicking their fighter icon and pass that in as a parameter to this.human.takeTurn()
+        // Once connected to the DOM, this will assign var outcome to the product of the conditional and use that to call the addWin() method to the right player and call the right DOM manipulator functions to change HTML
+
+        // var sum = (this.human.takeTurn() - this.computer.takeTurn(this.pieceQuantity))
         if (sum === 0) {
             return 'draw'
         } else {
-            return ((sum > 0 && sum % 2 === 0) || (sum < 0 && sum % 2 !== 0)) 
-        } 
+            return ((sum > 0 && sum % 2 !== 0) || (sum < 0 && sum % 2 === 0)) 
+        }
     }
 
-    // This should go in main.js to manipulate the DOM
+    // This will be totally unneccessary once DOM is connected
     showWinner() {
-        if (this.playGame() === 'draw') {
+        var outcome = this.playGame()
+        if (outcome === 'draw') {
             return "It's a draw"
         }
-        if (!this.playGame()) {
+        if (!outcome) {
+            this.computer.wins++
             return "Computer Wins!"
         }
-        if (this.playGame()) {
+        if (outcome) {
+            this.human.wins++
             return "Human Wins!"
         }
     }
 
-    // Not sure if this will work as intended
+    // Seems to work as intended, product of this method will need to be stored in a global var of currentGame
     resetBoard() {
         return new Game(this.human, this.computer)
     }
 }
-
-
-
-// A player.js file that contains a Player class.
-// Player methods must include, but are not limited to:
-// constructor - properties should include: name (ex: 'Human'), token (ex: '👩🏻'), wins (ex: 0)
-// saveWinsToStorage - only necessary if you choose the localStorage extension
-// retrieveWinsFromStorage - only necessary if you choose the localStorage extension
-// takeTurn
-// A game.js file that contains a Game class.
-// A Game should include:
-// Two Player instances
-// A way to keep track of the data for the game board
-// A way to keep track of the selected game type
-// A way to check the Game’s board data for win conditions
-// A way to detect when a game is a draw (no one has won)
-// A way to reset the Game’s board to begin a new game
