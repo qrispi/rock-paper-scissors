@@ -25,6 +25,10 @@ main h2 {
     font-size: 5vmin;
 }
 
+.win-message {
+    font-size: 5vmin;
+}
+
 section {
     flex-basis: 20%;
     background-color: aquamarine;
