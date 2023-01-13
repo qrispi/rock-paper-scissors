@@ -7,12 +7,66 @@ body {
 
 main {
     flex-basis: 60%;
-    font-size: 5vmin;
     background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+main h1 {
+    font-size: 8vmin;
+    margin: 0;
+    padding: 0 2vmin;
+}
+
+main h2 {
+    margin: 0;
+    font-size: 5vmin;
 }
 
 section {
     flex-basis: 20%;
-    font-size: 4vmin;
     background-color: aquamarine;
 }
+
+section h2 {
+    font-size: 15vmin;
+    margin: 1vmin 0;
+}
+
+section h3 {
+    font-size: 4vmin;
+    margin-bottom: 1vmin;
+}
+
+section h4 {
+    font-size: 3vmin;
+}
+
+button {
+    margin-top: 5vmin;
+    font-size: 3vmin;
+}
+
+article {
+    background-color: rgba(255, 255, 255, .3);
+    width: 40%;
+}
+
+img {
+    height: 20vmin;
+    width: 20vmin;
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 100vh) {
+    body {
+        flex-direction: column;
+    }
+}
+
+/* check out filter: drop-shadow() for an image shadow */
