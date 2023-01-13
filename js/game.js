@@ -2,19 +2,19 @@ class Game {
     constructor(humanPlayer, computerPlayer) {
         this.human = new Player(humanPlayer)
         this.computer = new Player(computerPlayer)
-        this.pieceQuantity = 3
-        // Probably won't need this array once DOM is setup
+        // this.pieceQuantity = 3
+        // This should hold all the fighter images and use this to display them accordingly, maybe set them up as objects with name, rule and img url
         this.gamePieces = ['rock', 'paper', 'scissors', 'spock', 'lizard']
     }
 
     // Once connected to DOM, will just take in a parameter of whats clicked and assign pieceQuantity accordingly
-    switchGames() {
-        if (this.pieceQuantity === 3) {
-            this.pieceQuantity = 5
-        } else {
-            this.pieceQuantity = 3
-        }
-    }
+    // switchGames() {
+    //     if (this.pieceQuantity === 3) {
+    //         this.pieceQuantity = 5
+    //     } else {
+    //         this.pieceQuantity = 3
+    //     }
+    // }
 
     playGame() {
         // unnecessary console logs and vars for clarity        
