@@ -16,7 +16,7 @@
     <main>
         <h1>Rock, Paper, Scissors!</h1>
         <h2 class="hidden">~ Choose Your Adventure ~</h2>
-        <article class="hidden">
+        <article class="hidden" data-piece-quantity="3">
             <h3>Classic</h3>
             <!-- <p>Rock crushes Scissors</p>
             <p>Paper covers Rock</p>
@@ -25,25 +25,33 @@
             <p>Jim pranks Dwight</p>
             <p>Dwight kung-fus Michael</p>
         </article>
-        <article class="hidden">
+        <article class="hidden" data-piece-quantity="5">
             <h3>Space-Mode</h3>
-            <p>Rock crushes Scissors & Lizard</p>
+            <!-- <p>Rock crushes Scissors & Lizard</p>
             <p>Paper covers Rock & disproves Spock</p>
             <p>Scissors cuts Paper & decapitates Lizard</p>
             <p>Lizard eats Paper & poisons Spock</p>
-            <p>Spock vaporizes Scissors & Rock</p>
+            <p>Spock vaporizes Scissors & Rock</p> -->
+            <p>Michael embarrases Jim & calms Angela</p>
+            <p>Jim pranks Dwight & throws/exposes Angela</p>
+            <p>Dwight wrestles Michael & intimidates Toby</p>
+            <p>Toby bores Jim & uses HR on Michael</p>
+            <p>Angela seduces Dwight & insults Toby</p>
         </article>
-        <div class="classic-fighters">
-            <img src="assets/michael.png" alt="Michael Scott head icon">
-            <img src="assets/dwight.png" alt="Dwight Schrute head icon">
-            <img src="assets/jim.png" alt="Jim Halpert head icon">
+        <div>
+            
         </div>
-        <div class="expanded-fighters">
-            <img src="assets/michael.png" alt="Michael Scott head icon">
-            <img src="assets/dwight.png" alt="Dwight Schrute head icon">
-            <img src="assets/jim.png" alt="Jim Halpert head icon">
-            <img src="assets/toby.png" alt="Toby Flenderson head icon">
-            <img src="assets/angela.png" alt="Angela Martin head icon">
+        <div class="classic-fighters, hidden">
+            <img src="assets/michael.png" alt="Michael Scott head icon" data-index-number="0">
+            <img src="assets/jim.png" alt="Jim Halpert head icon" data-index-number="2">
+            <img src="assets/dwight.png" alt="Dwight Schrute head icon" data-index-number="1">
+        </div>
+        <div class="expanded-fighters, hidden">
+            <img src="assets/michael.png" alt="Michael Scott head icon" data-index-number="0">
+            <img src="assets/jim.png" alt="Jim Halpert head icon" data-index-number="2">
+            <img src="assets/dwight.png" alt="Dwight Schrute head icon" data-index-number="1">
+            <img src="assets/toby.png" alt="Toby Flenderson head icon" data-index-number="3">
+            <img src="assets/angela.png" alt="Angela Martin head icon" data-index-number="4">
         </div>
     </main>
     <section class="computer">
