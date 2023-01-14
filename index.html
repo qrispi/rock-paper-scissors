@@ -7,53 +7,30 @@
         <title>Dunder Mifflin Smackdown</title>
     </head>
     <body>
-        <section class="human">
-            <h2 id="human-token">&#129503</h2>
-            <h3 id="human-name">Human</h3>
-            <h4 id="human-wins">Wins: 0</h4>
-            <button class="hidden" id="change-games-button">Change Games</button>
-        </section>
+        <section id="human"></section>
+        <button class="hidden" id="change-games-button">Change Games</button>
         <main>
             <h1>Dunder Mifflin Smackdown</h1>
             <h2 class="" id="choose-text">~ Choose Your Office ~</h2>
-            <article class="" id="bullpen-rules" data-piece-quantity="3">
-                <h3>Bullpen</h3>
-                <p data-classic-rule="1">Michael embarrases Jim</p>
-                <p data-classic-rule="2">Jim pranks Dwight</p>
-                <p data-classic-rule="3">Dwight wrestles Michael</p>
-            </article>
-            <article class="" id="annex-rules" data-piece-quantity="5">
-                <h3>Bullpen + The Annex</h3>
-                <p data-expanded-rule="1">Michael embarrases Jim & calms Angela</p>
-                <p data-expanded-rule="2">Jim pranks Dwight & throws/exposes Angela</p>
-                <p data-expanded-rule="3">Dwight wrestles Michael & intimidates Toby</p>
-                <p data-expanded-rule="4">Toby bores Jim & uses HR on Michael</p>
-                <p data-expanded-rule="5">Angela seduces Dwight & insults Toby</p>
-            </article>
-            <div class="win-message hidden">
-                <h4>WooHoo! You Win!</h4>
-                <h5>Jim pranks Dwight</h5>
+            <div class="bullpen-fighters hidden">
+                <img src="assets/michael.png" alt="Michael Scott" data-index-number="0">
                 <img src="assets/jim.png" alt="Jim Halpert" data-index-number="2">
                 <img src="assets/dwight.png" alt="Dwight Schrute" data-index-number="1">
             </div>
-            <div class="bullpen-fighters hidden">
-                <img src="assets/michael.png" alt="Michael Scott" data-index-number="0" class="michael">
-                <img src="assets/jim.png" alt="Jim Halpert" data-index-number="2" class="jim">
-                <img src="assets/dwight.png" alt="Dwight Schrute" data-index-number="1" class="dwight">
-            </div>
+            <article id="bullpen-rules">
+                <h3>Bullpen</h3>
+                <p data-classic-rule="1">Michael embarrases Jim</p>
+                <p data-classic-rule="2">Jim pranks Dwight</p>
+                <p data-classic-rule="3">Dwight wrestles Michael</p>
+            </article>
             <div class="annex-fighters hidden">
-                <img src="assets/michael.png" alt="Michael Scott" data-index-number="0" class="michael">
-                <img src="assets/jim.png" alt="Jim Halpert" data-index-number="2" class="jim">
-                <img src="assets/dwight.png" alt="Dwight Schrute" data-index-number="1" class="dwight">
-                <img src="assets/toby.png" alt="Toby Flenderson" data-index-number="3" class="toby">
-                <img src="assets/angela.png" alt="Angela Martin" data-index-number="4" class="angela">
+                <img src="assets/michael.png" alt="Michael Scott" data-index-number="0">
+                <img src="assets/jim.png" alt="Jim Halpert" data-index-number="2">
+                <img src="assets/dwight.png" alt="Dwight Schrute" data-index-number="1">
+                <img src="assets/toby.png" alt="Toby Flenderson" data-index-number="3">
+                <img src="assets/angela.png" alt="Angela Martin" data-index-number="4">
             </div>
-        </main>
-        <section class="computer">
-            <h2 id="computer-token">&#128421</h2>
-            <h3 id="computer-name">Computer</h3>
-            <h4 id="computer-wins">Wins: 0</h4>
-            <article class="mini-annex-rules hidden" data-piece-quantity="5">
+            <article id="annex-rules">
                 <h3>Bullpen + The Annex</h3>
                 <p data-expanded-rule="1">Michael embarrases Jim & calms Angela</p>
                 <p data-expanded-rule="2">Jim pranks Dwight & throws/exposes Angela</p>
@@ -61,13 +38,10 @@
                 <p data-expanded-rule="4">Toby bores Jim & uses HR on Michael</p>
                 <p data-expanded-rule="5">Angela seduces Dwight & insults Toby</p>
             </article>
-            <article class="mini-bullpen-rules hidden" data-piece-quantity="3">
-                <h3>Bullpen</h3>
-                <p data-classic-rule="1">Michael embarrases Jim</p>
-                <p data-classic-rule="2">Jim pranks Dwight</p>
-                <p data-classic-rule="3">Dwight wrestles Michael</p>
-            </article>
-        </section>
+            <div class="win-message hidden"></div>
+        </main>
+        <section id="computer"></section>
+        <!-- Have the computer pop up little snide quotes from the characters in the sidebar -->
         <script type="text/javascript" src="./js/player.js"></script>
         <script type="text/javascript" src="./js/game.js"></script>
         <script type="text/javascript" src="./js/main.js"></script>
