@@ -8,8 +8,4 @@ class Player {
     takeTurn(num) {
         this.fighter = currentGame.fighters[Math.floor(Math.random() * num)]
     }
-
-    addWin() {
-        this.wins++
-    }
 }
