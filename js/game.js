@@ -1,7 +1,8 @@
 class Game {
-    constructor(humanPlayer, computerPlayer) {
+    constructor(humanPlayer, computerPlayer, fighterQuantity) {
         this.human = new Player(humanPlayer)
         this.computer = new Player(computerPlayer)
+        this.fighterQuantity = fighterQuantity
         this.fighters = [
             {imgSrc: "assets/michael.png", alt: "Michael Scott", index: 0, name: "Michael", winCondition: ["embarrases Jim", "calms Angela"]},
             {imgSrc: "assets/dwight.png", alt: "Dwight Schrute", index: 1, name: "Dwight", winCondition: ["wrestles Michael", "intimidates Toby"]},
@@ -38,8 +39,7 @@ class Game {
         }
     }
 
-    // Seems to work as intended, product of this method will need to be stored in a global var of currentGame
     resetBoard() {
-        currentGame = new Game(this.human, this.computer)
+        currentGame = new Game(this.human, this.computer, this.fighterQuantity)
     }
 }
