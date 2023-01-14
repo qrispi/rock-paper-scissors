@@ -2,9 +2,8 @@ class Game {
     constructor(humanPlayer, computerPlayer) {
         this.human = new Player(humanPlayer)
         this.computer = new Player(computerPlayer)
-        // this.pieceQuantity = 3
         // This should hold all the fighter images and use this to display them accordingly, maybe set them up as objects with name, rule and img url
-        this.gamePieces = ['rock', 'paper', 'scissors', 'spock', 'lizard']
+        this.gamePieces = ['michael', 'dwight', 'jim', 'toby', 'angela']
     }
 
     // Once connected to DOM, will just take in a parameter of whats clicked and assign pieceQuantity accordingly
@@ -18,16 +17,19 @@ class Game {
 
     playGame() {
         // unnecessary console logs and vars for clarity        
-        var playerChoice = this.human.takeTurn()
-        console.log('human :', this.gamePieces[playerChoice])
-        var computerChoice = this.computer.takeTurn(this.pieceQuantity)
-        console.log('computer :', this.gamePieces[computerChoice])
-        var sum = (playerChoice - computerChoice)
+        currentGame.human.fighter = this.gamePieces[currentGame.human.fighterIndex]
+        // console.log('player choice: ', playerChoice)
+        // console.log('human: ', this.gamePieces[playerChoice])
+        currentGame.computer.fighter = this.gamePieces[currentGame.computer.takeTurn(currentGame.fighterQuantity)]
+        // console.log('computer: ', this.gamePieces[computerChoice])
+        // var sum = (playerChoice - computerChoice)
 
         // Should be triggered by player clicking their fighter icon and pass that in as a parameter to this.human.takeTurn()
         // Once connected to the DOM, this will assign var outcome to the product of the conditional and use that to call the addWin() method to the right player and call the right DOM manipulator functions to change HTML
 
-        // var sum = (this.human.takeTurn() - this.computer.takeTurn(this.pieceQuantity))
+        var sum = (currentGame.human.fighterIndex - currentGame.computer.takeTurn(currentGame.fighterQuantity))
+        // console.log(this.human.fighterChoice)
+
         if (sum === 0) {
             return 'draw'
         } else {
