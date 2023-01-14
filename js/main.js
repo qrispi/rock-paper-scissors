@@ -1,6 +1,7 @@
 var currentGame = new Game({name: 'Human', token: '&#129503', wins: 0}, {name: 'Computer', token: '&#128421', wins: 0})
 
 var humanInfo = document.getElementById('human')
+var computerInfo = document.getElementById('computer')
 
 var bullpenRules = document.getElementById('bullpen-rules')
 var annexRules = document.getElementById('annex-rules')
@@ -13,32 +14,33 @@ var winMessage = document.querySelector('.win-message')
 var bullpenFighters = document.querySelector('.bullpen-fighters')
 var annexFighters = document.querySelector('.annex-fighters')
 
-// var michael = document.querySelector('.michael')
-// var jim = document.querySelector('.jim')
-// var dwight = document.querySelector('.dwight')
-// var toby = document.querySelector('.toby')
-// var angela = document.querySelector('.angela')
+window.addEventListener('load', showPlayerInfo)
 
-bullpenRules.addEventListener('click', startSimpleGame)
-annexRules.addEventListener('click', startHardGame)
+bullpenRules.addEventListener('click', startBullpenGame)
+annexRules.addEventListener('click', startAnnexGame)
 
 bullpenFighters.addEventListener('click', chooseFighter)
 annexFighters.addEventListener('click', chooseFighter)
 
-// michael.addEventListener('click', chooseFighter)
-// jim.addEventListener('click', chooseFighter)
-// dwight.addEventListener('click', chooseFighter)
-// toby.addEventListener('click', chooseFighter)
-// angela.addEventListener('click', chooseFighter)
+function showPlayerInfo() {
+    humanInfo.innerHTML = `
+    <h2>${currentGame.human.token}</h2>
+    <h3>${currentGame.human.name}</h3>
+    <h4>Wins: ${currentGame.human.wins}</h4>`
+    computerInfo.innerHTML = `
+    <h2>${currentGame.computer.token}</h2>
+    <h3>${currentGame.computer.name}</h3>
+    <h4>Wins: ${currentGame.computer.wins}</h4>`
+}
 
-function startSimpleGame() {
+function startBullpenGame() {
     hide(annexRules)
     show(bullpenFighters)
     chooseText.innerText = 'Choose Your Fighter!'
     currentGame.fighterQuantity = 3
 }
 
-function startHardGame() {
+function startAnnexGame() {
     hide(bullpenRules)
     show(annexFighters)
     chooseText.innerText = 'Choose Your Fighter!'
@@ -50,20 +52,18 @@ function chooseFighter(event) {
     if (currentGame.fighterQuantity > 3) {
         hide(annexFighters)
         hide(annexRules)
-        // show(miniAnnexRules)
     } else {
         hide(bullpenFighters)
         hide(bullpenRules)
-        // show(miniBullpenRules)
     }
     currentGame.human.fighter = currentGame.fighters[parseInt(event.target.closest('img').dataset.indexNumber)]
     currentGame.computer.takeTurn(currentGame.fighterQuantity)
     announceWinner()
-    
 }
 
 function announceWinner() {
     var result = currentGame.showWinner()
+    showPlayerInfo()
     show(winMessage)
     // Need to fix error of wrong win message displaying when one of the annex characters is used
     var winCondition = `This office ain't big enough for two ${currentGame.human.fighter.name}s!`
@@ -81,10 +81,16 @@ function announceWinner() {
 }
 
 function resetPage() {
-    currentGame.resetBoard()
     hide(winMessage)
-    show(bullpenRules)
-    show(annexRules)
+    show(chooseText)
+    if (currentGame.fighterQuantity > 3) {
+        startAnnexGame()
+        show(annexRules)
+    } else {
+        startBullpenGame()
+        show(bullpenRules)
+    }
+    currentGame.resetBoard()
 }
 
 function hide(element) {
