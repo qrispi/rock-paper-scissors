@@ -1,4 +1,6 @@
-var currentGame = new Game({name: 'human', token: '&#129503', wins: 0}, {name: 'computer', token: '&#128421', wins: 0})
+var currentGame = new Game({name: 'Human', token: '&#129503', wins: 0}, {name: 'Computer', token: '&#128421', wins: 0})
+
+var humanInfo = document.getElementById('human')
 
 var bullpenRules = document.getElementById('bullpen-rules')
 var annexRules = document.getElementById('annex-rules')
@@ -48,27 +50,41 @@ function chooseFighter(event) {
     if (currentGame.fighterQuantity > 3) {
         hide(annexFighters)
         hide(annexRules)
-        show(miniAnnexRules)
+        // show(miniAnnexRules)
     } else {
         hide(bullpenFighters)
         hide(bullpenRules)
-        show(miniBullpenRules)
+        // show(miniBullpenRules)
     }
     currentGame.human.fighter = currentGame.fighters[parseInt(event.target.closest('img').dataset.indexNumber)]
     currentGame.computer.takeTurn(currentGame.fighterQuantity)
-
-    console.log(currentGame.showWinner())
-    // announceWinner()
+    announceWinner()
+    
 }
 
 function announceWinner() {
+    var result = currentGame.showWinner()
     show(winMessage)
+    // Need to fix error of wrong win message displaying when one of the annex characters is used
+    var winCondition = `This office ain't big enough for two ${currentGame.human.fighter.name}s!`
+    if (currentGame.fighterQuantity > 3 && currentGame.winner) {
+        winCondition = `${currentGame.winner.name} ${currentGame.winner.winCondition[1]}`
+    } else if (currentGame.winner) {
+        winCondition = `${currentGame.winner.name} ${currentGame.winner.winCondition[0]}`
+    }
     winMessage.innerHTML = `
-        <h4>WooHoo! You Win!</h4>
-        <h5>Jim pranks Dwight</h5>
-        <img src="assets/jim.png" alt="Jim Halpert head icon" data-index-number="2">
-        <img src="assets/dwight.png" alt="Dwight Schrute head icon" data-index-number="1"></img>`
-    
+        <h4>${result}</h4>
+        <img src="${currentGame.human.fighter.imgSrc}" alt="${currentGame.human.fighter.alt}">
+        <img src="${currentGame.computer.fighter.imgSrc}" alt="${currentGame.computer.fighter.alt}">
+        <h5>${winCondition}</h5>`
+    setTimeout(resetPage, 4000)
+}
+
+function resetPage() {
+    currentGame.resetBoard()
+    hide(winMessage)
+    show(bullpenRules)
+    show(annexRules)
 }
 
 function hide(element) {
