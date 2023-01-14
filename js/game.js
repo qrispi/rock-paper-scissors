@@ -3,11 +3,11 @@ class Game {
         this.human = new Player(humanPlayer)
         this.computer = new Player(computerPlayer)
         this.fighters = [
-            {imgSrc: "assets/michael.png", alt: "Michael Scott", index: 0, class: "michael"},
-            {imgSrc: "assets/dwight.png", alt: "Dwight Schrute", index: 1, class: "dwight"},
-            {imgSrc: "assets/jim.png", alt: "Jim Halpert", index: 2, class: "jim"},
-            {imgSrc: "assets/toby.png", alt: "Toby Flenderson", index: 3, class: "toby"},
-            {imgSrc: "assets/angela.png", alt: "Angela Martin", index: 4, class: "angela"}]
+            {imgSrc: "assets/michael.png", alt: "Michael Scott", index: 0, class: "michael", winCondition: ["embarrases Jim", "& calms Angela"]},
+            {imgSrc: "assets/dwight.png", alt: "Dwight Schrute", index: 1, class: "dwight", winCondition: ["wrestles Michael", "& intimidates Toby"]},
+            {imgSrc: "assets/jim.png", alt: "Jim Halpert", index: 2, class: "jim", winCondition: ["pranks Dwight", "& throws/exposes Angela"]},
+            {imgSrc: "assets/toby.png", alt: "Toby Flenderson", index: 3, class: "toby", winCondition: ["bores Jim", "& uses HR on Michael"]},
+            {imgSrc: "assets/angela.png", alt: "Angela Martin", index: 4, class: "angela", winCondition: ["seduces Dwight", "& insults Toby"]}]
     }
 
     playGame() {
