@@ -6,12 +6,12 @@ class Player {
     }
 
     takeTurn(num) {
-        if (num) {
             return Math.floor(Math.random() * num)
-        } else {
-            // 'num = index number of icon that player clicked'
-            return num || 0
-        }
+        
+        // else {
+        //     // 'num = index number of icon that player clicked'
+        //     return num || 0
+        // }
     }
 
     addWin() {
