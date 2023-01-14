@@ -2,6 +2,8 @@ var currentGame = new Game({name: 'human', token: '&#129503', wins: 0}, {name: '
 
 var bullpenRules = document.getElementById('bullpen-rules')
 var annexRules = document.getElementById('annex-rules')
+var miniBullpenRules = document.querySelector('.mini-bullpen-rules')
+var miniAnnexRules = document.querySelector('.mini-annex-rules')
 
 var chooseText = document.getElementById('choose-text')
 var winMessage = document.querySelector('.win-message')
@@ -46,16 +48,17 @@ function chooseFighter(event) {
     if (currentGame.fighterQuantity > 3) {
         hide(annexFighters)
         hide(annexRules)
+        show(miniAnnexRules)
     } else {
         hide(bullpenFighters)
         hide(bullpenRules)
+        show(miniBullpenRules)
     }
-    currentGame.human.fighterIndex = parseInt(event.target.closest('img').dataset.indexNumber)
-    
-    // console.log('human index: ', currentGame.human.fighterIndex)
-    var outcome = currentGame.playGame()
-    console.log(outcome)
-    announceWinner()
+    currentGame.human.fighter = currentGame.fighters[parseInt(event.target.closest('img').dataset.indexNumber)]
+    currentGame.computer.takeTurn(currentGame.fighterQuantity)
+
+    console.log(currentGame.showWinner())
+    // announceWinner()
 }
 
 function announceWinner() {

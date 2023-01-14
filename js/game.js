@@ -2,8 +2,12 @@ class Game {
     constructor(humanPlayer, computerPlayer) {
         this.human = new Player(humanPlayer)
         this.computer = new Player(computerPlayer)
-        // This should hold all the fighter images and use this to display them accordingly, maybe set them up as objects with name, rule and img url
-        this.gamePieces = ['michael', 'dwight', 'jim', 'toby', 'angela']
+        this.gamePieces = [
+            {imgSrc: "assets/michael.png", alt: "Michael Scott", index: 0, class: "michael"},
+            {imgSrc: "assets/jim.png", alt: "Jim Halpert", index: 2, class: "jim"},
+            {imgSrc: "assets/dwight.png", alt: "Dwight Schrute", index: 1, class: "dwight"},
+            {imgSrc: "assets/toby.png", alt: "Toby Flenderson", index: 3, class: "toby"},
+            {imgSrc: "assets/angela.png", alt: "Angela Martin", index: 4, class: "angela"}]
     }
 
     // Once connected to DOM, will just take in a parameter of whats clicked and assign pieceQuantity accordingly
