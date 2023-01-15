@@ -74,12 +74,9 @@ function announceWinner() {
     var result = currentGame.showWinner()
     updatePlayerInfo()
     show(winMessage)
-    // Need to fix error of wrong win message displaying when one of the annex characters is used
     var winCondition = `This office ain't big enough for two ${currentGame.human.fighter.name}s!`
-    if (currentGame.fighterQuantity > 3 && currentGame.winner) {
-        winCondition = `${currentGame.winner.name} ${currentGame.winner.winCondition[1]}`
-    } else if (currentGame.winner) {
-        winCondition = `${currentGame.winner.name} ${currentGame.winner.winCondition[0]}`
+    if (currentGame.winner) {
+        winCondition = createWinCondition()
     }
     winMessage.innerHTML = `
         <h4>${result}</h4>
@@ -87,6 +84,18 @@ function announceWinner() {
         <img src="${currentGame.computer.fighter.imgSrc}" alt="${currentGame.computer.fighter.alt}">
         <h5>${winCondition}</h5>`
     setTimeout(resetPage, 4000)
+}
+
+function createWinCondition() {
+    var winCondition
+    if (currentGame.winner.index === 3 && currentGame.loser.index === 0) {
+        winCondition = `${currentGame.winner.name} ${currentGame.winner.winCondition[1]}`
+    } else if (currentGame.loser.index > 2) {
+        winCondition = `${currentGame.winner.name} ${currentGame.winner.winCondition[1]}`
+    } else {
+        winCondition = `${currentGame.winner.name} ${currentGame.winner.winCondition[0]}`
+    }
+    return winCondition
 }
 
 function resetPage() {
