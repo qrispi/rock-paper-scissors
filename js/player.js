@@ -6,15 +6,6 @@ class Player {
     }
 
     takeTurn(num) {
-        if (num) {
-            return Math.floor(Math.random() * num)
-        } else {
-            // 'num = index number of icon that player clicked'
-            return num || 0
-        }
-    }
-
-    addWin() {
-        this.wins++
+        this.fighter = currentGame.fighters[Math.floor(Math.random() * num)]
     }
 }

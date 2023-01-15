@@ -1,33 +1,18 @@
 class Game {
-    constructor(humanPlayer, computerPlayer) {
+    constructor(humanPlayer, computerPlayer, fighterQuantity) {
         this.human = new Player(humanPlayer)
         this.computer = new Player(computerPlayer)
-        this.pieceQuantity = 3
-        // Probably won't need this array once DOM is setup
-        this.gamePieces = ['rock', 'paper', 'scissors', 'spock', 'lizard']
-    }
-
-    // Once connected to DOM, will just take in a parameter of whats clicked and assign pieceQuantity accordingly
-    switchGames() {
-        if (this.pieceQuantity === 3) {
-            this.pieceQuantity = 5
-        } else {
-            this.pieceQuantity = 3
-        }
+        this.fighterQuantity = fighterQuantity
+        this.fighters = [
+            {imgSrc: "assets/michael.png", alt: "Michael Scott", index: 0, name: "Michael", winCondition: ["embarrases Jim", "calms Angela"]},
+            {imgSrc: "assets/dwight.png", alt: "Dwight Schrute", index: 1, name: "Dwight", winCondition: ["wrestles Michael", "intimidates Toby"]},
+            {imgSrc: "assets/jim.png", alt: "Jim Halpert", index: 2, name: "Jim", winCondition: ["pranks Dwight", "exposes Angela's secret"]},
+            {imgSrc: "assets/toby.png", alt: "Toby Flenderson", index: 3, name: "Toby", winCondition: ["bores Jim", "uses HR on Michael"]},
+            {imgSrc: "assets/angela.png", alt: "Angela Martin", index: 4, name: "Angela", winCondition: ["seduces Dwight", "insults Toby"]}]
     }
 
     playGame() {
-        // unnecessary console logs and vars for clarity        
-        var playerChoice = this.human.takeTurn()
-        console.log('human :', this.gamePieces[playerChoice])
-        var computerChoice = this.computer.takeTurn(this.pieceQuantity)
-        console.log('computer :', this.gamePieces[computerChoice])
-        var sum = (playerChoice - computerChoice)
-
-        // Should be triggered by player clicking their fighter icon and pass that in as a parameter to this.human.takeTurn()
-        // Once connected to the DOM, this will assign var outcome to the product of the conditional and use that to call the addWin() method to the right player and call the right DOM manipulator functions to change HTML
-
-        // var sum = (this.human.takeTurn() - this.computer.takeTurn(this.pieceQuantity))
+        var sum = (currentGame.human.fighter.index - currentGame.computer.fighter.index)
         if (sum === 0) {
             return 'draw'
         } else {
@@ -35,24 +20,26 @@ class Game {
         }
     }
 
-    // This will be totally unneccessary once DOM is connected
     showWinner() {
         var outcome = this.playGame()
         if (outcome === 'draw') {
-            return "It's a draw"
+            return "It's a draw!"
         }
         if (!outcome) {
             this.computer.wins++
-            return "Computer Wins!"
+            this.winner = this.computer.fighter
+            this.loser = this.human.fighter
+            return "Better Luck Next Time... Computer Wins!"
         }
         if (outcome) {
             this.human.wins++
-            return "Human Wins!"
+            this.winner = this.human.fighter
+            this.loser = this.computer.fighter
+            return "WooHoo!! You Win!"
         }
     }
 
-    // Seems to work as intended, product of this method will need to be stored in a global var of currentGame
     resetBoard() {
-        return new Game(this.human, this.computer)
+        currentGame = new Game(this.human, this.computer, this.fighterQuantity)
     }
 }
