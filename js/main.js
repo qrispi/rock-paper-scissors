@@ -2,31 +2,34 @@ var currentGame = new Game({name: 'Human', token: '&#129503', wins: 0}, {name: '
 
 var humanInfo = document.getElementById('human')
 var computerInfo = document.getElementById('computer')
-
 var bullpenRules = document.getElementById('bullpen-rules')
 var annexRules = document.getElementById('annex-rules')
-var miniBullpenRules = document.querySelector('.mini-bullpen-rules')
-var miniAnnexRules = document.querySelector('.mini-annex-rules')
-
-var chooseText = document.getElementById('choose-text')
-var winMessage = document.querySelector('.win-message')
-
 var bullpenFighters = document.querySelector('.bullpen-fighters')
 var annexFighters = document.querySelector('.annex-fighters')
+var chooseText = document.getElementById('choose-text')
+var winMessage = document.querySelector('.win-message')
+var changeGameButton
 
-window.addEventListener('load', showPlayerInfo)
-
+window.addEventListener('load', showMainScreen)
 bullpenRules.addEventListener('click', startBullpenGame)
 annexRules.addEventListener('click', startAnnexGame)
-
 bullpenFighters.addEventListener('click', chooseFighter)
 annexFighters.addEventListener('click', chooseFighter)
 
-function showPlayerInfo() {
+function showMainScreen() {
+    updatePlayerInfo()
+    show(bullpenRules)
+    show(annexRules)
+}
+
+function updatePlayerInfo() {
     humanInfo.innerHTML = `
     <h2>${currentGame.human.token}</h2>
     <h3>${currentGame.human.name}</h3>
-    <h4>Wins: ${currentGame.human.wins}</h4>`
+    <h4>Wins: ${currentGame.human.wins}</h4>
+    <button class="hidden" id="change-game-button">Change Game</button>`
+    changeGameButton = document.getElementById('change-game-button')
+    changeGameButton.addEventListener('click', switchGames)
     computerInfo.innerHTML = `
     <h2>${currentGame.computer.token}</h2>
     <h3>${currentGame.computer.name}</h3>
@@ -47,6 +50,12 @@ function startAnnexGame() {
     currentGame.fighterQuantity = 5
 }
 
+function switchGames() {
+    hide(bullpenFighters)
+    hide(annexFighters)
+    showMainScreen()
+}
+
 function chooseFighter(event) {
     hide(chooseText)
     if (currentGame.fighterQuantity > 3) {
@@ -63,7 +72,7 @@ function chooseFighter(event) {
 
 function announceWinner() {
     var result = currentGame.showWinner()
-    showPlayerInfo()
+    updatePlayerInfo()
     show(winMessage)
     // Need to fix error of wrong win message displaying when one of the annex characters is used
     var winCondition = `This office ain't big enough for two ${currentGame.human.fighter.name}s!`
@@ -83,6 +92,7 @@ function announceWinner() {
 function resetPage() {
     hide(winMessage)
     show(chooseText)
+    show(changeGameButton)
     if (currentGame.fighterQuantity > 3) {
         startAnnexGame()
         show(annexRules)
