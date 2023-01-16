@@ -8,13 +8,25 @@ var bullpenFighters = document.querySelector('.bullpen-fighters')
 var annexFighters = document.querySelector('.annex-fighters')
 var chooseText = document.getElementById('choose-text')
 var winMessage = document.querySelector('.win-message')
+var startButton = document.getElementById('start-button')
+var welcomeMsg = document.querySelector('.welcome-msg')
+var main = document.querySelector('main')
 var changeGameButton
 
-window.addEventListener('load', showMainScreen)
+// window.addEventListener('load', showMainScreen)
+startButton.addEventListener('click', removeWelcomeMsg)
 bullpenRules.addEventListener('click', startBullpenGame)
 annexRules.addEventListener('click', startAnnexGame)
 bullpenFighters.addEventListener('click', chooseFighter)
 annexFighters.addEventListener('click', chooseFighter)
+
+function removeWelcomeMsg() {
+    hide(welcomeMsg)
+    show(humanInfo)
+    show(computerInfo)
+    show(main)
+    showMainScreen()
+}
 
 function showMainScreen() {
     updatePlayerInfo()
@@ -30,7 +42,7 @@ function updatePlayerInfo() {
     <img src="${currentGame.human.token}" class="avatar">
     <h3>${currentGame.human.name}</h3>
     <h4>Wins: ${currentGame.human.wins}</h4>
-    <button class="hidden" id="change-game-button">Change Game</button>`
+    <button class="hidden change-games" id="change-game-button">Change Game</button>`
     changeGameButton = document.getElementById('change-game-button')
     changeGameButton.addEventListener('click', switchGames)
     computerInfo.innerHTML = `
