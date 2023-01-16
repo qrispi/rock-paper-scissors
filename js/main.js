@@ -89,7 +89,7 @@ function announceWinner() {
         <img src="${currentGame.human.fighter.imgSrc}" alt="${currentGame.human.fighter.alt}">
         <img src="${currentGame.computer.fighter.imgSrc}" alt="${currentGame.computer.fighter.alt}">
         <h5>${winCondition}</h5>`
-    setTimeout(resetPage, 4000)
+    setTimeout(resetPage, 3000)
 }
 
 function createWinCondition() {
