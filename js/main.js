@@ -1,4 +1,4 @@
-var currentGame = new Game({name: 'Human', token: '&#129503', wins: 0}, {name: 'Computer', token: '&#128421', wins: 0})
+var currentGame = new Game({name: 'David Wallace aka the Human Player', token: 'assets/david-wallace.png', wins: 0}, {name: 'Robert California aka the Computer', token: 'assets/robert-california.png', wins: 0})
 
 var humanInfo = document.getElementById('human')
 var computerInfo = document.getElementById('computer')
@@ -20,18 +20,21 @@ function showMainScreen() {
     updatePlayerInfo()
     show(bullpenRules)
     show(annexRules)
+    addHover(bullpenRules)
+    addHover(annexRules)
 }
 
+// This should be re-factored somehow.... no need to generate this every single time. Unless it is dynamic based off user input
 function updatePlayerInfo() {
     humanInfo.innerHTML = `
-    <h2>${currentGame.human.token}</h2>
+    <img src="${currentGame.human.token}" class="avatar">
     <h3>${currentGame.human.name}</h3>
     <h4>Wins: ${currentGame.human.wins}</h4>
     <button class="hidden" id="change-game-button">Change Game</button>`
     changeGameButton = document.getElementById('change-game-button')
     changeGameButton.addEventListener('click', switchGames)
     computerInfo.innerHTML = `
-    <h2>${currentGame.computer.token}</h2>
+    <img src="${currentGame.computer.token}" class="avatar">
     <h3>${currentGame.computer.name}</h3>
     <h4>Wins: ${currentGame.computer.wins}</h4>`
 }
@@ -39,6 +42,7 @@ function updatePlayerInfo() {
 function startBullpenGame() {
     hide(annexRules)
     show(bullpenFighters)
+    removeHover(bullpenRules)
     chooseText.innerText = 'Choose Your Fighter!'
     currentGame.fighterQuantity = 3
 }
@@ -46,6 +50,7 @@ function startBullpenGame() {
 function startAnnexGame() {
     hide(bullpenRules)
     show(annexFighters)
+    removeHover(annexRules)
     chooseText.innerText = 'Choose Your Fighter!'
     currentGame.fighterQuantity = 5
 }
@@ -53,6 +58,7 @@ function startAnnexGame() {
 function switchGames() {
     hide(bullpenFighters)
     hide(annexFighters)
+    hide(chooseText)
     showMainScreen()
 }
 
@@ -118,4 +124,12 @@ function hide(element) {
 
 function show(element) {
     element.classList.remove('hidden')
+}
+
+function removeHover(element) {
+    element.classList.remove('hover')
+}
+
+function addHover(element) {
+    element.classList.add('hover')
 }
