@@ -4,6 +4,25 @@ body {
     display: flex;
     text-align: center;
     font-family: 'Special Elite', cursive;
+    background-image: url(assets/roof-bg.png);
+    background-size: cover;
+}
+
+.welcome-msg {
+    width: 50%;
+    margin-left: 40%;
+    margin-top: 15vh;
+    font-size: 3.5vmin;
+    font-family: 'Impact';
+    background-color: rgba(111, 126, 186, 0.6);
+}
+
+.start {
+    font-family: 'Special Elite', cursive;
+    font-size: 2.5vmin;
+    padding: 1vmin 2vmin;
+    margin-top: 3vmin;
+    border-radius: 1vmin;
 }
 
 main {
@@ -54,7 +73,7 @@ section h4 {
     font-size: 3vmin;
 }
 
-button {
+.change-games {
     margin-top: 5vmin;
     font-size: 3vmin;
     font-family: 'Special Elite', cursive;
@@ -66,7 +85,7 @@ button {
     /* box-shadow: 6px 6px 4px white; */
 }
 
-button:hover {
+.change-games:hover {
     /* scale: 1.1; */
     /* box-shadow: 10px 10px 4px white; */
     color: #16384E;
