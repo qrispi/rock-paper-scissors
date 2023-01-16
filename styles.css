@@ -3,12 +3,12 @@ body {
     margin: 0;
     display: flex;
     text-align: center;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Special Elite', cursive;
 }
 
 main {
     flex-basis: 60%;
-    background-color: aqua;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,13 +36,14 @@ section {
     flex-direction: column;
     align-items: center;
     flex-basis: 20%;
-    background-color: aquamarine;
+    background-color: #CEDCEB;
+    padding: 5vmin 1vmin;
 }
 
-section h2 {
+/* section h2 {
     font-size: 15vmin;
     margin: 1vmin 0;
-}
+} */
 
 section h3 {
     font-size: 4vmin;
@@ -56,17 +57,39 @@ section h4 {
 button {
     margin-top: 5vmin;
     font-size: 3vmin;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Special Elite', cursive;
+    background-color: #16384E;
+    color: white;
+    border-radius: 1vmin;
+    padding: 1vmin 3vmin;
+    cursor: pointer;
+    /* box-shadow: 6px 6px 4px white; */
+}
+
+button:hover {
+    /* scale: 1.1; */
+    /* box-shadow: 10px 10px 4px white; */
+    color: #16384E;
+    background-color: white;
 }
 
 article {
-    background-color: rgba(255, 255, 255, .3);
-    width: 40%;
+    background-color: #CEDCEB;
     font-size: 2.5vmin;
+    border-radius: 1vmin;
 }
 
-.expanded-rules {
-    width: 80%;
+.hover:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+
+#bullpen-rules {
+    width: 35%;
+}
+
+#annex-rules {
+    width: 70%;
 }
 
 img {
@@ -74,11 +97,29 @@ img {
     width: 20vmin;
 }
 
+.avatar {
+    height: 25vmin;
+    width: 30vmin;
+    filter: drop-shadow(1vmin 1.5vmin 5px #16384E);
+}
+
+.icon:hover {
+    cursor: pointer;
+    scale: 1.2;
+}
+
+.logo {
+    height: 20vmin;
+    width: 70vmin;
+    border-radius: 1vmin;
+    filter: drop-shadow(2vmin 2vmin 4px #CEDCEB);
+}
+
 .hidden {
     display: none;
 }
 
-@media screen and (max-width: 100vh) {
+@media screen and (max-width: 125vh) {
     body {
         flex-direction: column;
     }
