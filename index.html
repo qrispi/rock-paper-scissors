@@ -10,9 +10,16 @@
         <title>Dunder Mifflin Smackdown</title>
     </head>
     <body>
-        <section id="human"></section>
-        <main>
-            <img src="assets/dunder-mifflin-logo.png" alt="Dunder Mifflin Paper Company logo" class="logo">
+        <div class="welcome-msg">
+            <h1>Welcome to Dunder Mifflin Smackdown!!</h1>
+            <p>Your mission, should you choose to accept it, is to pit the characters of The Office against each other in a battle to the death for eternal glory!</p>
+            <p>Just kidding. It's rock, paper, scissors but Michael is the rock, Jim is the paper, and Dwight is the scissors. You will be playing against an AI recreation of Robert California so good luck!</p>
+            <p>There is also a variation of rock, paper, scissors, lizard, spock that includes Toby and Angela.</p>
+            <button class="start" id="start-button">Click to Choose Game</button>
+        </div>
+        <section class="hidden" id="human"></section>
+        <main class="hidden">
+            <img src="assets/dunder-mifflin-logo.png" alt="Dunder Mifflin Paper Company logo" class="logo hidden">
             <!-- <h1>Dunder Mifflin Smackdown</h1> -->
             <!-- Need to create a welcome page or incorporate this into the beginning of the game -->
             <h2 class="hidden" id="choose-text">~ Choose Your Office ~</h2>
@@ -44,7 +51,7 @@
             </article>
             <div class="win-message hidden"></div>
         </main>
-        <section id="computer"></section>
+        <section id="computer" class="hidden"></section>
         <!-- Have the computer pop up little snide quotes from the characters in the sidebar -->
         <script type="text/javascript" src="./js/player.js"></script>
         <script type="text/javascript" src="./js/game.js"></script>
