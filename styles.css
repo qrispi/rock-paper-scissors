@@ -89,7 +89,7 @@ article {
 }
 
 #annex-rules {
-    width: 70%;
+    width: 60%;
 }
 
 img {
@@ -112,7 +112,7 @@ img {
 
 .logo {
     height: 20vmin;
-    width: 70vmin;
+    width: 75vmin;
     border-radius: 1vmin;
     filter: drop-shadow(2vmin 2vmin 4px #CEDCEB);
 }
