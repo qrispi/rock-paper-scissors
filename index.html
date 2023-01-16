@@ -3,39 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./styles.css">
         <title>Dunder Mifflin Smackdown</title>
     </head>
     <body>
         <section id="human"></section>
         <main>
-            <h1>Dunder Mifflin Smackdown</h1>
+            <img src="assets/dunder-mifflin-logo.png" alt="Dunder Mifflin Paper Company logo" class="logo">
+            <!-- <h1>Dunder Mifflin Smackdown</h1> -->
+            <!-- Need to create a welcome page or incorporate this into the beginning of the game -->
             <h2 class="hidden" id="choose-text">~ Choose Your Office ~</h2>
             <div class="bullpen-fighters hidden">
-                <img src="assets/michael.png" alt="Michael Scott" data-index-number="0">
-                <img src="assets/jim.png" alt="Jim Halpert" data-index-number="2">
-                <img src="assets/dwight.png" alt="Dwight Schrute" data-index-number="1">
+                <img src="assets/michael.png" alt="Michael Scott" data-index-number="0" class="icon">
+                <img src="assets/jim.png" alt="Jim Halpert" data-index-number="2" class="icon">
+                <img src="assets/dwight.png" alt="Dwight Schrute" data-index-number="1" class="icon">
             </div>
             <article id="bullpen-rules" class="hidden">
                 <h3>Bullpen</h3>
-                <p data-classic-rule="1">Michael embarrases Jim</p>
-                <p data-classic-rule="2">Jim pranks Dwight</p>
-                <p data-classic-rule="3">Dwight wrestles Michael</p>
+                <p>Michael embarrases Jim</p>
+                <p>Jim pranks Dwight</p>
+                <p>Dwight wrestles Michael</p>
             </article>
             <div class="annex-fighters hidden">
-                <img src="assets/michael.png" alt="Michael Scott" data-index-number="0">
-                <img src="assets/jim.png" alt="Jim Halpert" data-index-number="2">
-                <img src="assets/dwight.png" alt="Dwight Schrute" data-index-number="1">
-                <img src="assets/toby.png" alt="Toby Flenderson" data-index-number="3">
-                <img src="assets/angela.png" alt="Angela Martin" data-index-number="4">
+                <img src="assets/michael.png" alt="Michael Scott" data-index-number="0" class="icon">
+                <img src="assets/jim.png" alt="Jim Halpert" data-index-number="2" class="icon">
+                <img src="assets/dwight.png" alt="Dwight Schrute" data-index-number="1" class="icon">
+                <img src="assets/toby.png" alt="Toby Flenderson" data-index-number="3" class="icon">
+                <img src="assets/angela.png" alt="Angela Martin" data-index-number="4" class="icon">
             </div>
             <article id="annex-rules" class="hidden">
                 <h3>Bullpen + The Annex</h3>
-                <p data-expanded-rule="1">Michael embarrases Jim & calms Angela</p>
-                <p data-expanded-rule="2">Jim pranks Dwight & exposes Angela's secret</p>
-                <p data-expanded-rule="3">Dwight wrestles Michael & intimidates Toby</p>
-                <p data-expanded-rule="4">Toby bores Jim & uses HR on Michael</p>
-                <p data-expanded-rule="5">Angela seduces Dwight & insults Toby</p>
+                <p>Michael embarrases Jim & calms Angela</p>
+                <p>Jim pranks Dwight & exposes Angela's secret</p>
+                <p>Dwight wrestles Michael & intimidates Toby</p>
+                <p>Toby bores Jim & uses HR on Michael</p>
+                <p>Angela seduces Dwight & insults Toby</p>
             </article>
             <div class="win-message hidden"></div>
         </main>
