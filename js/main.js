@@ -1,7 +1,9 @@
 var currentGame = new Game({name: 'David Wallace aka the Human Player', token: 'assets/david-wallace.png', wins: 0}, {name: 'Robert California aka the Computer', token: 'assets/robert-california.png', wins: 0})
 
 var humanInfo = document.getElementById('human')
+var humanWinCount = document.getElementById('human-win-count')
 var computerInfo = document.getElementById('computer')
+var computerWinCount = document.getElementById('computer-win-count')
 var bullpenRules = document.getElementById('bullpen-rules')
 var annexRules = document.getElementById('annex-rules')
 var bullpenFighters = document.querySelector('.bullpen-fighters')
@@ -10,8 +12,9 @@ var chooseText = document.getElementById('choose-text')
 var winMessage = document.querySelector('.win-message')
 var startButton = document.getElementById('start-button')
 var welcomeMsg = document.querySelector('.welcome-msg')
-var main = document.querySelector('main')
-var changeGameButton
+var logo = document.querySelector('.logo')
+var computerChat = document.querySelector('.computer-chat')
+var changeGameButton = document.getElementById('change-game-button')
 
 // window.addEventListener('load', showMainScreen)
 startButton.addEventListener('click', removeWelcomeMsg)
@@ -19,12 +22,13 @@ bullpenRules.addEventListener('click', startBullpenGame)
 annexRules.addEventListener('click', startAnnexGame)
 bullpenFighters.addEventListener('click', chooseFighter)
 annexFighters.addEventListener('click', chooseFighter)
+changeGameButton.addEventListener('click', switchGames)
 
 function removeWelcomeMsg() {
     hide(welcomeMsg)
-    show(humanInfo)
-    show(computerInfo)
-    show(main)
+    // show(humanInfo)
+    // show(computerInfo)
+    show(logo)
     showMainScreen()
 }
 
@@ -38,17 +42,8 @@ function showMainScreen() {
 
 // This should be re-factored somehow.... no need to generate this every single time. Unless it is dynamic based off user input
 function updatePlayerInfo() {
-    humanInfo.innerHTML = `
-    <img src="${currentGame.human.token}" class="avatar">
-    <h3>${currentGame.human.name}</h3>
-    <h4>Wins: ${currentGame.human.wins}</h4>
-    <button class="hidden change-games" id="change-game-button">Change Game</button>`
-    changeGameButton = document.getElementById('change-game-button')
-    changeGameButton.addEventListener('click', switchGames)
-    computerInfo.innerHTML = `
-    <img src="${currentGame.computer.token}" class="avatar">
-    <h3>${currentGame.computer.name}</h3>
-    <h4>Wins: ${currentGame.computer.wins}</h4>`
+    humanWinCount.innerText = `Wins: ${currentGame.human.wins}`
+    computerWinCount.innerText = `Wins: ${currentGame.computer.wins}`
 }
 
 function startBullpenGame() {
@@ -62,6 +57,7 @@ function startBullpenGame() {
 function startAnnexGame() {
     hide(bullpenRules)
     show(annexFighters)
+    // hide(computerChat)
     removeHover(annexRules)
     chooseText.innerText = 'Choose Your Fighter!'
     currentGame.fighterQuantity = 5
@@ -76,6 +72,7 @@ function switchGames() {
 
 function chooseFighter(event) {
     hide(chooseText)
+    
     if (currentGame.fighterQuantity > 3) {
         hide(annexFighters)
         hide(annexRules)
@@ -101,7 +98,9 @@ function announceWinner() {
         <img src="${currentGame.human.fighter.imgSrc}" alt="${currentGame.human.fighter.alt}">
         <img src="${currentGame.computer.fighter.imgSrc}" alt="${currentGame.computer.fighter.alt}">
         <h5>${winCondition}</h5>`
+    displayComputerChat(result)
     setTimeout(resetPage, 3000)
+    setTimeout(hide, 5000, computerChat)
 }
 
 function createWinCondition() {
@@ -114,6 +113,23 @@ function createWinCondition() {
         winCondition = `${currentGame.winner.name} ${currentGame.winner.winCondition[0]}`
     }
     return winCondition
+}
+
+function displayComputerChat(gameResult) {
+    setTimeout(show, 1500, computerChat)
+    if (gameResult === "It's a draw!") {
+        computerChat.innerHTML = `
+        <p>“Do I look like someone who would waste my own time?”</p>
+        <p>– Robert California</p>`
+    } else if (gameResult === "WooHoo!! You Win!") {
+        computerChat.innerHTML = `
+        <p>“There’s something about an underdog that really inspires the unexceptional.”</p>
+        <p>– Robert California</p>`
+    } else {
+        computerChat.innerHTML = `
+        <p>“Did you really think you could beat me? I’m the f*cking lizard king.”</p>
+        <p>– Robert California</p>`
+    }
 }
 
 function resetPage() {
