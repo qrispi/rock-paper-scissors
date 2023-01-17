@@ -10,16 +10,22 @@
         <title>Dunder Mifflin Smackdown</title>
     </head>
     <body>
-        <div class="welcome-msg">
-            <h1>Welcome to Dunder Mifflin Smackdown!!</h1>
-            <p>Your mission, should you choose to accept it, is to pit the characters of The Office against each other in a battle to the death for eternal glory!</p>
-            <p>Just kidding. It's rock, paper, scissors but Michael is the rock, Jim is the paper, and Dwight is the scissors. You will be playing against an AI recreation of Robert California so good luck!</p>
-            <p>There is also a variation of rock, paper, scissors, lizard, spock that includes Toby and Angela.</p>
-            <button class="start" id="start-button">Click to Choose Game</button>
-        </div>
-        <section class="hidden" id="human"></section>
-        <main class="hidden">
-            <img src="assets/dunder-mifflin-logo.png" alt="Dunder Mifflin Paper Company logo" class="logo">
+        <section id="human">
+            <img src="assets/david-wallace.png" class="avatar">
+            <h3>David Wallace aka the Human Player</h3>
+            <h4 id="human-win-count">Wins: 0</h4>
+            <button class="hidden change-games" id="change-game-button">Change Game</button>
+        </section>
+        <main>
+            <div class="welcome-msg">
+                <h1>Welcome to Dunder Mifflin Smackdown!!</h1>
+                <!-- <p>Your mission, should you choose to accept it, is to pit the characters of The Office against each other in a battle to the death for eternal glory!</p> -->
+                <p>This is a 'The Office' themed variation of rock, paper, scissors, where Michael is the rock, Jim is the paper, and Dwight is the scissors.</p>
+                <p>You will be playing as David Wallace, against an AI recreation of Robert California!</p>
+                <p>There is also a variation of rock, paper, scissors, lizard, spock that includes Toby and Angela.</p>
+                <button id="start-button">Choose Game to Begin</button>
+            </div>
+            <img src="assets/dunder-mifflin-logo.png" alt="Dunder Mifflin Paper Company logo" class="logo hidden">
             <!-- <h1>Dunder Mifflin Smackdown</h1> -->
             <!-- Need to create a welcome page or incorporate this into the beginning of the game -->
             <h2 class="hidden" id="choose-text">~ Choose Your Office ~</h2>
@@ -51,7 +57,12 @@
             </article>
             <div class="win-message hidden"></div>
         </main>
-        <section id="computer" class="hidden"></section>
+        <section id="computer">
+            <img src="assets/robert-california.png" class="avatar">
+            <h3>Robert California aka the Computer</h3>
+            <h4 id="computer-win-count">Wins: 0</h4>
+            <div class="computer-chat hidden"></div>
+        </section>
         <!-- Have the computer pop up little snide quotes from the characters in the sidebar -->
         <script type="text/javascript" src="./js/player.js"></script>
         <script type="text/javascript" src="./js/game.js"></script>
