@@ -16,7 +16,6 @@ var logo = document.querySelector('.logo')
 var computerChat = document.querySelector('.computer-chat')
 var changeGameButton = document.getElementById('change-game-button')
 
-// window.addEventListener('load', showMainScreen)
 startButton.addEventListener('click', removeWelcomeMsg)
 bullpenRules.addEventListener('click', startBullpenGame)
 annexRules.addEventListener('click', startAnnexGame)
@@ -26,8 +25,6 @@ changeGameButton.addEventListener('click', switchGames)
 
 function removeWelcomeMsg() {
     hide(welcomeMsg)
-    // show(humanInfo)
-    // show(computerInfo)
     show(logo)
     showMainScreen()
 }
@@ -40,7 +37,6 @@ function showMainScreen() {
     addHover(annexRules)
 }
 
-// This should be re-factored somehow.... no need to generate this every single time. Unless it is dynamic based off user input
 function updatePlayerInfo() {
     humanWinCount.innerText = `Wins: ${currentGame.human.wins}`
     computerWinCount.innerText = `Wins: ${currentGame.computer.wins}`
@@ -49,17 +45,16 @@ function updatePlayerInfo() {
 function startBullpenGame() {
     hide(annexRules)
     show(bullpenFighters)
+    show(chooseText)
     removeHover(bullpenRules)
-    chooseText.innerText = 'Choose Your Fighter!'
     currentGame.fighterQuantity = 3
 }
 
 function startAnnexGame() {
     hide(bullpenRules)
     show(annexFighters)
-    // hide(computerChat)
+    show(chooseText)
     removeHover(annexRules)
-    chooseText.innerText = 'Choose Your Fighter!'
     currentGame.fighterQuantity = 5
 }
 
@@ -72,7 +67,6 @@ function switchGames() {
 
 function chooseFighter(event) {
     hide(chooseText)
-    
     if (currentGame.fighterQuantity > 3) {
         hide(annexFighters)
         hide(annexRules)
