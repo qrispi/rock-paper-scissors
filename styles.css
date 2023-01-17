@@ -4,26 +4,29 @@ body {
     display: flex;
     text-align: center;
     font-family: 'Special Elite', cursive;
-    background-image: url(assets/roof-bg.png);
-    background-size: cover;
+    /* background-image: url(assets/roof-bg.png); */
+    /* background-size: cover; */
 }
 
 .welcome-msg {
-    width: 50%;
-    margin-left: 40%;
-    margin-top: 15vh;
+    width: 70%;
+    /* margin-left: 40%; */
+    margin-top: 5vh;
     font-size: 3.5vmin;
-    font-family: 'Impact';
-    background-color: rgba(111, 126, 186, 0.6);
+    /* font-family: 'Impact'; */
+    background-color: #CEDCEB;
+    border-radius: 1vmin;
+    padding: 2vh 2vw;
+    /* color: white; */
 }
 
-.start {
+/* .start {
     font-family: 'Special Elite', cursive;
     font-size: 2.5vmin;
     padding: 1vmin 2vmin;
     margin-top: 3vmin;
     border-radius: 1vmin;
-}
+} */
 
 main {
     flex-basis: 60%;
@@ -36,7 +39,7 @@ main {
 
 main h1 {
     font-size: 8vmin;
-    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-family: Impact, sans-serif;
     margin: 0;
     padding: 0 2vmin;
 }
@@ -59,6 +62,15 @@ section {
     padding: 5vmin 1vmin;
 }
 
+.computer-chat {
+    width: 80%;
+    font-size: 3vmin;
+    background-color: #16384E;
+    color: #CEDCEB;
+    border-radius: 1vmin;
+    padding: 1vmin 2vmin;
+}
+
 /* section h2 {
     font-size: 15vmin;
     margin: 1vmin 0;
@@ -73,7 +85,7 @@ section h4 {
     font-size: 3vmin;
 }
 
-.change-games {
+button {
     margin-top: 5vmin;
     font-size: 3vmin;
     font-family: 'Special Elite', cursive;
@@ -85,7 +97,7 @@ section h4 {
     /* box-shadow: 6px 6px 4px white; */
 }
 
-.change-games:hover {
+button:hover {
     /* scale: 1.1; */
     /* box-shadow: 10px 10px 4px white; */
     color: #16384E;
@@ -143,5 +155,14 @@ img {
 @media screen and (max-width: 125vh) {
     body {
         flex-direction: column;
+    }
+
+    section {
+        flex-direction: row;
+    }
+
+    section h3 {
+        width: 30%;
+        margin: 2vh 4vw;
     }
 }
