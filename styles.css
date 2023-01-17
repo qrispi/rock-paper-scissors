@@ -6,6 +6,19 @@ body {
     font-family: 'Special Elite', cursive;
 }
 
+.welcome-msg {
+    width: 70%;
+    margin-top: 5vh;
+    font-size: 3vmin;
+    background-color: #CEDCEB;
+    border-radius: 1vmin;
+    padding: 2vh 2vw;
+}
+
+.welcome-msg button {
+    margin-top: 0;
+}
+
 main {
     flex-basis: 60%;
     background-color: white;
@@ -16,8 +29,8 @@ main {
 }
 
 main h1 {
-    font-size: 8vmin;
-    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 7vmin;
+    font-family: Impact, sans-serif;
     margin: 0;
     padding: 0 2vmin;
 }
@@ -40,10 +53,14 @@ section {
     padding: 5vmin 1vmin;
 }
 
-/* section h2 {
-    font-size: 15vmin;
-    margin: 1vmin 0;
-} */
+.computer-chat {
+    width: 75%;
+    font-size: 3vmin;
+    background-color: #16384E;
+    color: #CEDCEB;
+    border-radius: 1vmin;
+    padding: 1vmin 2vmin;
+}
 
 section h3 {
     font-size: 4vmin;
@@ -63,12 +80,9 @@ button {
     border-radius: 1vmin;
     padding: 1vmin 3vmin;
     cursor: pointer;
-    /* box-shadow: 6px 6px 4px white; */
 }
 
 button:hover {
-    /* scale: 1.1; */
-    /* box-shadow: 10px 10px 4px white; */
     color: #16384E;
     background-color: white;
 }
@@ -121,8 +135,32 @@ img {
     display: none;
 }
 
-@media screen and (max-width: 125vh) {
+@media screen and (max-width: 130vh) {
     body {
         flex-direction: column;
+    }
+
+    main {
+        flex-basis: 80%;
+    }
+
+    section {
+        flex-direction: row;
+        flex-basis: 10%;
+    }
+
+    .avatar {
+        height: 15vmin;
+        width: 15vmin;
+    }
+
+    .welcome-msg {
+        font-size: 2vw;
+        margin-top: 0;
+    }
+
+    section h3 {
+        width: 50%;
+        margin: 2vh 4vw;
     }
 }
