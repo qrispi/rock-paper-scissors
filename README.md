@@ -12,6 +12,7 @@ I chose to create an office style theme for my game where Michael is the rock, J
 
 ### Preview of App:
 GitHub Pages Link: TBD
+![image](assets/rock-paper-scissors-demo.gif)
 
 ### Context:
 This project was created during our 5th week in Turing as our final solo project. I spent an estimated 30 hours of time on this project with around half of it being on the core requirements for the project. The other half was spent on creating the office theme, creating a scaling functionality, creating a mathematical algorithm to solve the game and adding in little extras.
