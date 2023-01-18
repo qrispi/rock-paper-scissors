@@ -13,11 +13,7 @@ class Game {
 
     playGame() {
         var sum = (currentGame.human.fighter.index - currentGame.computer.fighter.index)
-        if (sum === 0) {
-            return 'draw'
-        } else {
-            return ((sum > 0 && sum % 2 !== 0) || (sum < 0 && sum % 2 === 0)) 
-        }
+        return ((sum === 0) ? 'draw' : ((sum > 0 && sum % 2 !== 0) || (sum < 0 && sum % 2 === 0)))
     }
 
     showWinner() {

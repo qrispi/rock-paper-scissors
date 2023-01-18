@@ -1,9 +1,5 @@
 var currentGame = new Game({name: 'David Wallace aka the Human Player', token: 'assets/david-wallace.png', wins: 0}, {name: 'Robert California aka the Computer', token: 'assets/robert-california.png', wins: 0})
 
-var humanInfo = document.getElementById('human')
-var humanWinCount = document.getElementById('human-win-count')
-var computerInfo = document.getElementById('computer')
-var computerWinCount = document.getElementById('computer-win-count')
 var bullpenRules = document.getElementById('bullpen-rules')
 var annexRules = document.getElementById('annex-rules')
 var bullpenFighters = document.querySelector('.bullpen-fighters')
@@ -11,8 +7,6 @@ var annexFighters = document.querySelector('.annex-fighters')
 var chooseText = document.getElementById('choose-text')
 var winMessage = document.querySelector('.win-message')
 var startButton = document.getElementById('start-button')
-var welcomeMsg = document.querySelector('.welcome-msg')
-var logo = document.querySelector('.logo')
 var computerChat = document.querySelector('.computer-chat')
 var changeGameButton = document.getElementById('change-game-button')
 
@@ -24,6 +18,8 @@ annexFighters.addEventListener('click', chooseFighter)
 changeGameButton.addEventListener('click', switchGames)
 
 function removeWelcomeMsg() {
+    var welcomeMsg = document.querySelector('.welcome-msg')
+    var logo = document.querySelector('.logo')
     hide(welcomeMsg)
     show(logo)
     showMainScreen()
@@ -38,7 +34,9 @@ function showMainScreen() {
 }
 
 function updatePlayerInfo() {
+    var humanWinCount = document.getElementById('human-win-count')
     humanWinCount.innerText = `Wins: ${currentGame.human.wins}`
+    var computerWinCount = document.getElementById('computer-win-count')
     computerWinCount.innerText = `Wins: ${currentGame.computer.wins}`
 }
 
@@ -67,13 +65,7 @@ function switchGames() {
 
 function chooseFighter(event) {
     hide(chooseText)
-    if (currentGame.fighterQuantity > 3) {
-        hide(annexFighters)
-        hide(annexRules)
-    } else {
-        hide(bullpenFighters)
-        hide(bullpenRules)
-    }
+    currentGame.fighterQuantity > 3 ? (hide(annexFighters), hide(annexRules)) : (hide(bullpenFighters), hide(bullpenRules))
     currentGame.human.fighter = currentGame.fighters[parseInt(event.target.closest('img').dataset.indexNumber)]
     currentGame.computer.takeTurn(currentGame.fighterQuantity)
     announceWinner()
@@ -130,13 +122,7 @@ function resetPage() {
     hide(winMessage)
     show(chooseText)
     show(changeGameButton)
-    if (currentGame.fighterQuantity > 3) {
-        startAnnexGame()
-        show(annexRules)
-    } else {
-        startBullpenGame()
-        show(bullpenRules)
-    }
+    currentGame.fighterQuantity > 3 ? (startAnnexGame(), show(annexRules)) : (startBullpenGame(), show(bullpenRules))
     currentGame.resetBoard()
 }
 

@@ -40,6 +40,20 @@ main h2 {
     font-size: 5vmin;
 }
 
+article {
+    background-color: #CEDCEB;
+    font-size: 2.5vmin;
+    border-radius: 1vmin;
+}
+
+#bullpen-rules {
+    width: 35%;
+}
+
+#annex-rules {
+    width: 60%;
+}
+
 .win-message {
     font-size: 5vmin;
 }
@@ -53,15 +67,6 @@ section {
     padding: 5vmin 1vmin;
 }
 
-.computer-chat {
-    width: 75%;
-    font-size: 3vmin;
-    background-color: #16384E;
-    color: #CEDCEB;
-    border-radius: 1vmin;
-    padding: 1vmin 2vmin;
-}
-
 section h3 {
     font-size: 4vmin;
     margin-bottom: 1vmin;
@@ -69,6 +74,15 @@ section h3 {
 
 section h4 {
     font-size: 3vmin;
+}
+
+.computer-chat {
+    width: 75%;
+    font-size: 3vmin;
+    background-color: #16384E;
+    color: #CEDCEB;
+    border-radius: 1vmin;
+    padding: 1vmin 2vmin;
 }
 
 button {
@@ -87,23 +101,9 @@ button:hover {
     background-color: white;
 }
 
-article {
-    background-color: #CEDCEB;
-    font-size: 2.5vmin;
-    border-radius: 1vmin;
-}
-
 .hover:hover {
     scale: 1.1;
     cursor: pointer;
-}
-
-#bullpen-rules {
-    width: 35%;
-}
-
-#annex-rules {
-    width: 60%;
 }
 
 img {
